@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.kemmer.df-e2-visa-tracker</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/make/Projects/dark-factories/df-e2-visa-tracker/scripts/run-df-e2-visa-tracker-mac.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key><integer>4</integer>
+        <key>Minute</key><integer>0</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/make/.df-state/e2-visa-tracker/stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/make/.df-state/e2-visa-tracker/stderr.log</string>
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

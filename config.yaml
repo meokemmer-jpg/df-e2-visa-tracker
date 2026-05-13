@@ -3,6 +3,22 @@ df_name: E2-Visa-Tracker
 welle_introduced: welle-43
 type: foundation-df
 crux-mk: true
+
+default_action:
+  description: "E-2 Visa Tracker - Investment-Threshold-Monitoring ($100k+) + USCIS-Filing-Status + Source-of-Funds-Dokumentation + Familien-Begleitung Dependent-Visa-Status (Empfehlungs-only, KEINE Filing-Aktion)"
+  rho_per_run_eur: 80
+  rho_validation_source: unvalidated
+  block_gates:
+    - gate_id: K13_PAV
+      block_reason: "Pre-Action-Verification PFLICHT bei K_0+Q_0-Direct: KEIN-Direct-USCIS-Filing (Anwaltsvorbehalt §StBerG/RDG) + Steuer-Implikation Source-of-Funds + Brueder-Kohaesion-Q_0-Risk"
+      false_block_cost_eur: 60
+      legitimate_block_condition: "Direct-USCIS-Filing-Attempt (immer REJECT, Anwaltsvorbehalt) ODER Production-Mode ohne PHRONESIS_TICKET"
+    - gate_id: K14
+      block_reason: "Human-Override-Decay: USCIS-Status-Changes immer Martin-Review (no auto-decision)"
+      false_block_cost_eur: 40
+      legitimate_block_condition: "Auto-Decision-Mode ohne Martin-Review-Loop"
+  graceful_degradation_path: "Sandbox-Tracking-only-Mode (Status-Display + Threshold-Alerts ohne API-Calls zu USCIS)"
+
 k0_touch: true
 q0_touch: true
 k0_caveats:
